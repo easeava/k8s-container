@@ -1,0 +1,23 @@
+---
+- hosts: k8s-master
+  vars:
+    work_dir: /home/ease/work/install
+  tasks:
+    -name: mkdir work
+      shell: mkdir -p {{ work_dir }}
+
+    - name: copy shell
+      copy:
+        src: '{{ item.src }}'
+        dest: '{{ item.dest }}'
+      with_items:
+        - { src: './docker-compose.sh', dest: '{{ work_dir }}/docker-compose.sh' }
+        - { src: './keepalived_haproxy.sh', dest: '{{ work_dir }}/keepalived_haproxy.sh' }
+    
+    - name: install docker-compose
+      shell: sh {{ work_dir }}/docker-compose.sh
+      become: yes
+      become_user: root
+
+    - name: install keepalive haproxy
+      shell: sh {{ work_dir }}/keepalived_haproxy.sh

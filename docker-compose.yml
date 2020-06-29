@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  haproxy:
+    build: ./haproxy
+    ports: 
+      - 6444:6444
+    environment: 
+      MasterIP1: 10.10.2.8
+      MasterIP2: 10.10.2.9
+      MasterIP3: 10.10.2.10
+  
+  keepalived:
+    build: ./keepalived
+    network_mode: 'host'
+    cap_add: 
+      - NET_ADMIN
+    environment: 
+      VIRTUAL_IP: 10.10.2.6
+      INTERFACE: ens160
+      CHECK_PORT: 6444
+      RID: 10
+      VRID: 160
+      NETMASK_BIT: 24
+      MCAST_GROUP: 224.0.0.18

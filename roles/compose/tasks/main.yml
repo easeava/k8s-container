@@ -1,0 +1,4 @@
+- name: install compose
+  shell: apt update && apt install docker-compose -y
+  become: yes
+  become_user: root

@@ -1,0 +1,9 @@
+- name: copy shell
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+  with_items:
+    - { src: 'keepalived_haproxy.sh', dest: '{{ work_dir }}' }
+
+- name: install keepalive haproxy
+  shell: sh {{ work_dir }}/keepalived_haproxy.sh

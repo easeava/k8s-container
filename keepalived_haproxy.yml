@@ -1,7 +1,3 @@
-- hosts: keepalive-master
-  roles:
-    - keepalived_haproxy
-
-- hosts: keepalive-node
+- hosts: k8s-master
   roles:
     - keepalived_haproxy

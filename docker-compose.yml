@@ -5,10 +5,12 @@ services:
     restart: always
     ports: 
       - 6444:6444
+      - 1080:1080
     environment: 
       MasterIP1: 10.10.2.8
       MasterIP2: 10.10.2.9
       MasterIP3: 10.10.2.10
+      MasterPort: 6443
   
   keepalived:
     build: ./keepalived

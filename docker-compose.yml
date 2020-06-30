@@ -2,6 +2,7 @@ version: '3.7'
 services:
   haproxy:
     build: ./haproxy
+    restart: always
     ports: 
       - 6444:6444
     environment: 
@@ -11,6 +12,7 @@ services:
   
   keepalived:
     build: ./keepalived
+    restart: always
     network_mode: 'host'
     cap_add: 
       - NET_ADMIN

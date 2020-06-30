@@ -1,0 +1,9 @@
+- name: copy shell
+  copy:
+    src: 'k8s.sh'
+    dest: '{{ work_dir }}/k8s.sh'
+
+- name: k8s
+  shell: sh /home/ease/k8s.sh
+  become: yes
+  become_user: root

@@ -1,0 +1,5 @@
+---
+  - hosts: all
+    tasks:
+      - name: set hostname
+        raw: "echo {{hostname|quote}} > /etc/hostname"

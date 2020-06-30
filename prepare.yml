@@ -1,0 +1,7 @@
+---
+  - hosts: all
+    vars:
+      work_dir: /home/ease/work/install
+    tasks:
+      - name: mkdir work
+      shell: mkdir -p {{ work_dir }}

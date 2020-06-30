@@ -6,7 +6,7 @@ WORK_PATH=/home/ease/work/install
 
 if [[ $1 && $1 == 'master-01' ]]
 then
-  sed -i 's/BACKUP/MASTER/' ${WORK_PATH}/keepalived.conf
+  sed -i 's/BACKUP/MASTER/' ${WORK_PATH}/k8s-compose/keepalived/keepalived.conf
 fi
 
 cd $WORK_PATH && rm -rf k8s-compose

@@ -6,4 +6,4 @@
     - { src: 'keepalived_haproxy.sh', dest: '{{ work_dir }}' }
 
 - name: install keepalive haproxy
-  shell: sh {{ work_dir }}/keepalived_haproxy.sh
+  shell: sh {{ work_dir }}/keepalived_haproxy.sh {{ host_name }}

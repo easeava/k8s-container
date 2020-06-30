@@ -9,6 +9,7 @@ then
   sed -i 's/BACKUP/MASTER/' ${WORK_PATH}/keepalived.conf
 fi
 
-cd $WORK_PATH
+cd $WORK_PATH && rm -rf k8s-compose
 git clone -b compose https://github.com/easeava/k8s-container.git k8s-compose && cd k8s-compose
-docker-compose up -d
+docker-compose stop
+docker-compose up --build -d
